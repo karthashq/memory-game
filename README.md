@@ -3,7 +3,7 @@ This game was built as a Udacity Course project.
 
 ## How to load the game
   * Download the repository and run the index.html file.
-  * Click [here]() to play it .
+  * Click [here](https://ashokviswa96.github.io/memory-game/) to play it .
 
 ##How to Play?
   * The timer starts when the page loads.
