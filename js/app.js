@@ -1,5 +1,5 @@
 let openCards = [];
-let moves, match, victory;
+let moves, match, victory,firstcard;
 let totalSeconds, seconds, minutes, startTimer;
 const $minutes = $(".minutes");
 const $seconds = $(".seconds");
@@ -26,6 +26,7 @@ function init() {
    moves = 0;
    match = 0;
    victory = false;
+   firstcard=true;
    $seconds.html("00");
    $minutes.html("00");
    $modal.css("display", "none");
@@ -50,7 +51,6 @@ function init() {
      resets the number of stars and starts timer.
    */
    changeStars();
-   timer();
 }
 /*
   starts the game when the DOM has loaded
@@ -86,8 +86,13 @@ adds listener to each card .
 */
 function addListener(selector, classcheck) {
    selector.click(function() {
+     //to check if the player clicks on the
+     // same card again instead of another card.
+     condition=selector.hasClass("match")||selector.hasClass("show open");
+     if(!condition){
       showSymbol(selector);
       addOpenCard(selector, classcheck);
+    }
    });
 }
 /*
@@ -95,6 +100,11 @@ function addListener(selector, classcheck) {
 */
 function showSymbol(selector) {
    selector.addClass("show open");
+   //to make sure the timer starts when the player starts the game
+   if(firstcard==true){
+   timer();
+ }
+ firstcard=false;
 }
 /*
   This function stops the timer and
@@ -134,6 +144,8 @@ function addOpenCard(selector, classcheck) {
   match variable.It also clears the openCards list.
 */
 function cardsMatch(x) {
+  openCards[x - 2][1].removeClass("show open");
+  openCards[x - 1][1].removeClass("show open");
    openCards[x - 2][1].addClass("match");
    openCards[x - 1][1].addClass("match");
    openCards = [];
