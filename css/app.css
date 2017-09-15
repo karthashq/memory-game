@@ -87,7 +87,7 @@ h1 {
 
 .score-panel {
   text-align: left;
-  width: 345px;
+  width: 50%;
   margin-bottom: 10px;
 }
 
@@ -146,7 +146,8 @@ h1 {
   /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 40%;
+  width: 50%;
+  height:50%;
   /* Could be more or less, depending on screen size */
   font-size: 20px;
 }
@@ -200,7 +201,9 @@ Media Queries for smaller screens
     width: 100px;
     margin-bottom:10px;
     margin-right:5px;
-
+  }
+  .score-panel{
+    font-size: 16px;
   }
 }
 @media only screen  and (max-width: 630px){
